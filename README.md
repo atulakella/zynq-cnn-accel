@@ -15,7 +15,7 @@ Full writeup: [Medium post]()
 | E2E total     | 0.704 ms |
 | Conv speedup  | 2.67×    |
 
-**Predicted:** 7 (CORRECT)  
+**Predicted:** 7 
 **Top-3:**  
 - [7] = 0.9996  
 - [3] = 0.0004  
