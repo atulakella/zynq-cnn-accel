@@ -2,7 +2,7 @@
 
 A hardware CNN accelerator built on the Zybo Z7-10. Conv2D IP runs on the FPGA fabric as a custom HLS IP block. ReLU, MaxPool, FC, and Softmax run on the ARM Cortex-A9 in software.
 
-Full writeup: [Medium post]()
+Full writeup: [Medium post](https://medium.com/@atul.akella/i-built-a-cnn-accelerator-on-zynq-7000-heres-everything-that-broke-4cc0f972530f)
 
 ---
 
