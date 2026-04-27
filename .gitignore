@@ -1,0 +1,5 @@
+*.xsa
+*.bit
+*.bin
+__pycache__/
+*.pyc

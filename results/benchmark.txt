@@ -1,0 +1,56 @@
+=== MNIST CNN Inference on Zynq-7000 ===
+Device  : Zybo Z7-10 (xc7z010clg400-1)
+Timer   : SCU @ 333 MHz
+Image   : MNIST digit, true label = 7
+================================================
+         DETAILED BENCHMARK REPORT
+================================================
+[1] Inference Result
+  True label  : 7
+  Predicted   : 7  (CORRECT)
+  Top-3: [7]=0.9996  [3]=0.0004  [9]=0.0000
+[2] Conv Latency
+  HW conv     :   114573 cycles   0.344 ms
+  SW conv     :   305493 cycles   0.916 ms
+  Speedup     : 2.67x
+[3] Throughput
+  HW conv     : 2909.4 inferences/sec
+  SW conv     : 1091.1 inferences/sec
+[4] Compute Efficiency
+  Total MACs  : 48672
+  HW MAC/cyc  : 0.4248  (1.0 = perfect pipeline)
+  SW MAC/cyc  : 0.1593
+[5] SW Layer Breakdown
+  ReLU        :    13411 cycles   0.040 ms
+  MaxPool     :    11770 cycles   0.035 ms
+  FC (1352→10):    94354 cycles   0.283 ms
+  SW total    :   119980 cycles   0.360 ms
+[6] End-to-End Pipeline
+  HW conv     : 0.344 ms  (48.8% of E2E)
+  SW layers   : 0.360 ms  (51.2% of E2E)
+  E2E total   : 0.704 ms
+  E2E throughput: 1421.1 inferences/sec
+[7] HW Latency Variance (10 runs)
+  Min         : 114669 cycles   0.344 ms
+  Max         : 114977 cycles   0.345 ms
+  Mean        : 114744 cycles   0.344 ms
+  Jitter      : 308 cycles   0.92 us
+[8] Conv Output Distribution (post-HW, pre-ReLU)
+  Min=-569  Max=441  Mean=17.46
+  Negative: 1999 (37.0%)  Zero: 967 (17.9%)  Positive: 2442 (45.2%)
+[9] HW vs SW Mismatch Analysis
+  Total mismatches: 1314 / 5408 (24.3%)
+  Per channel:
+    ch0: 170 / 676 (25.1%)
+    ch1: 160 / 676 (23.7%)
+    ch2: 166 / 676 (24.6%)
+    ch3: 160 / 676 (23.7%)
+    ch4: 166 / 676 (24.6%)
+    ch5: 161 / 676 (23.8%)
+    ch6: 168 / 676 (24.9%)
+    ch7: 163 / 676 (24.1%)
+  (Mismatches = +/-1 LSB rounding, HLS ap_fixed vs C >>8)
+  (Inference result unaffected — swamped by FC averaging)
+================================================
+  PIPELINE COMPLETE — Predicted: 7  (True: 7)
+================================================
